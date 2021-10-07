@@ -1,0 +1,29 @@
+<?php
+    require_once 'partials/header.php';
+
+?>
+
+
+<body>
+
+    <div class="container">
+        <div class="addTask">
+            <h1>Add new task</h1>
+        <form action="/add" method="post">
+            <label>Title</label>
+            <br>
+            <input type="text" name="title">
+            <br>
+            <label>Due</label>
+            <br>
+            <input type="datetime-local" name="due">
+            <br>
+            <input hidden type="text" name="status" value="created">
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
