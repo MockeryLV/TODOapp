@@ -5,11 +5,11 @@ require_once 'Repositories/MySqlTodoRepository.php';
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/todos', 'ShowTodosController@show');
-    $r->addRoute('GET', '/create', 'CreateFormController@show');
-    $r->addRoute('POST', '/add', 'CreateTodoController@create');
-    $r->addRoute('POST', '/setstatus', 'SetStatusController@update');
-    $r->addRoute('POST', '/delete', 'DeleteTodoController@delete');
+    $r->addRoute('GET', '/todos', 'TodoController@show');
+    $r->addRoute('GET', '/create', 'TodoController@create');
+    $r->addRoute('POST', '/add', 'TodoController@save');
+    $r->addRoute('POST', '/setstatus', 'TodoController@update');
+    $r->addRoute('POST', '/delete', 'TodoController@delete');
 });
 
 // Fetch method and URI from somewhere
