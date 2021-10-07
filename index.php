@@ -5,7 +5,7 @@ require_once 'Repositories/MySqlTodoRepository.php';
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/todos', 'TodoController@show');
+    $r->addRoute('GET', '/todos', 'TodoController@index');
     $r->addRoute('GET', '/create', 'TodoController@create');
     $r->addRoute('POST', '/add', 'TodoController@save');
     $r->addRoute('POST', '/setstatus', 'TodoController@update');

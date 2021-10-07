@@ -46,7 +46,7 @@ class TodoController{
         header('Location: /todos');
     }
 
-    public function show(): void{
+    public function index(): void{
 
 
         $todos = $this->todos->getAll()->getTodos();
