@@ -8,8 +8,9 @@ require_once 'partials/header.php';
 
 <body>
 
-    <div class="container">
 
+
+    <div class="container">
 
         <?php foreach ($todos as $todo):?>
             <div class="box">
@@ -24,18 +25,18 @@ require_once 'partials/header.php';
                         <form action="/setstatus" method="post">
                             <input hidden name="status" value="<?=$todo->getStatus()?>">
                             <input hidden name="id" value="<?=$todo->getId()?>">
-                            <input type="submit" class="status" value="Done?">
+                            <input class="submitButton" type="submit" class="status" value="Done?">
                         </form>
                         <?php
                     }else{ ?>
                         <form action="/setstatus" method="post">
                                 <input hidden name="status" value="<?=$todo->getStatus()?>">
                                 <input hidden name="id" value="<?=$todo->getId()?>">
-                                <input type="submit" class="status" value="Undone?">
+                                <input class="submitButton" type="submit" class="status" value="Undone?">
                                 </form>
                         <form action="/delete" method="post">
                             <input hidden name="id" value="<?=$todo->getId()?>">
-                            <input type="submit" value="X">
+                            <input class="submitButton" type="submit" value="X">
                         </form>
                 <?php
                     }
@@ -45,7 +46,7 @@ require_once 'partials/header.php';
         <?php endforeach;?>
         <div class="box">
             <form action="/create" method="get">
-                <input type="submit" value="Add">
+                <input  class="submitButton" type="submit" value="Add">
             </form>
         </div>
     </div>

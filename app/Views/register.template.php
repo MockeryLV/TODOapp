@@ -1,0 +1,18 @@
+<?php
+
+require_once 'app/Views/partials/header.php';
+
+?>
+
+
+<div class="container">
+    <div class="registration">
+        <form action="/registrate" method="post">
+            <label for="username">Enter username!</label>
+            <input id='username 'name='username' type="text" placeholder="Username...">
+            <label for="pwd">Enter password!</label>
+            <input id='pwd' type="password" name='password' placeholder="Pwd...">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</div>

@@ -18,9 +18,7 @@ class TodoCollection{
             }
         }
 
-
     }
-
 
     public function getTodos(): array
     {

@@ -6,7 +6,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container addTaskContainer">
         <div class="addTask">
             <h1>Add new task</h1>
         <form action="/add" method="post">
@@ -19,7 +19,7 @@
             <input type="datetime-local" name="due">
             <br>
             <input hidden type="text" name="status" value="created">
-            <input type="submit">
+            <input class="submitButton" type="submit">
         </form>
         </div>
     </div>

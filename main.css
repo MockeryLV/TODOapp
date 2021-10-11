@@ -1,5 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
-
+body{
+    font-family: 'Montserrat', sans-serif;
+}
 
 .container{
     background-color: gray;
@@ -12,7 +18,22 @@
     padding-left: 10px;
 }
 
+nav{
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+    height: 70px;
+    color: white;
+    background-color: black;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
 .box{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 10px;
     background-color: wheat;
     display: inline-block;
     margin: auto;
@@ -21,11 +42,92 @@
 }
 
 input{
+    border: white;
+    border-radius: 5px;
     padding: 0;
     margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
 }
+
+
+.navblock{
+    padding: 0;
+    margin: 0;
+    border-right: 2px dashed white;
+    text-align: center;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+
+    display: inline-block;
+
+    height: 50px;
+    width: 10%;
+}
+
+.logoutButton{
+
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.logoutButton:hover{
+    box-shadow: 0 0 5px white; /* Параметры тени */
+}
+
+.logoutButton:active{
+    box-shadow: 0 0 15px white;
+}
+
+.logout{
+    border-right: none;
+    border-left: 2px dashed white;
+    float: right;
+}
+
 
 .addTask{
 
+    display: inline;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
     text-align: center;
 }
+
+.addTaskContainer{
+    background-color: gray;
+}
+
+.addTask h1{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+.submitButton{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    margin-top: 20px;
+    display: flex;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.submitButton:hover{
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
+.submitButton:active{
+    box-shadow: 0 0 15px black;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
