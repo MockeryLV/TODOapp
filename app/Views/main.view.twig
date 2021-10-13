@@ -1,0 +1,41 @@
+
+{% include "header.twig"%}
+
+
+<div class="container">
+
+    {% for todo in todos %}
+    <div class="box">
+        {{ todo.getTitle() }}
+        <br>
+        {{ todo.getDue() }}
+        <br>
+
+        {% if todo.getStatus() == 'created' %}
+        <form action="/setstatus" method="post">
+            <input hidden name="status" value="{{ todo.getStatus() }}">
+            <input hidden name="id" value="{{ todo.getId() }}">
+            <input class="submitButton" type="submit" class="status" value="Done?">
+        </form>
+        {% else %}
+        <form action="/setstatus" method="post">
+            <input hidden name="status" value="{{ todo.getStatus() }}">
+            <input hidden name="id" value="{{ todo.getId() }}">
+            <input class="submitButton" type="submit" class="status" value="Undone?">
+        </form>
+        <form action="/delete" method="post">
+            <input hidden name="id" value="{{ todo.getId() }}">
+            <input class="submitButton" type="submit" value="X">
+        </form>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+    <div class="box">
+        <form action="/create" method="get">
+            <input  class="submitButton" type="submit" value="Add">
+        </form>
+    </div>
+</div>
+</body>
+</html>

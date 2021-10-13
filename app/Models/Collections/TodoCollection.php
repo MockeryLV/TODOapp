@@ -5,15 +5,16 @@ namespace App\Models\Collections;
 use App\Models\Todo as Todo;
 
 
-class TodoCollection{
+class TodoCollection
+{
 
     private array $todos = [];
 
     public function __construct(array $todos)
     {
 
-        foreach ($todos as $todo){
-            if($todo instanceof Todo){
+        foreach ($todos as $todo) {
+            if ($todo instanceof Todo) {
                 $this->todos[] = $todo;
             }
         }

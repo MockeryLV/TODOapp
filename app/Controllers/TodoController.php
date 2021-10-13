@@ -4,9 +4,13 @@
 namespace App\Controllers;
 
 use App\Repositories\MySqlTodoRepository;
+use App\TwigRenderer;
 use PDO;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-class TodoController{
+class TodoController
+{
     private MySqlTodoRepository $todos;
 
     public function __construct()
@@ -24,13 +28,15 @@ class TodoController{
         $this->todos = new MySqlTodoRepository($pdo);
     }
 
-    public function save(): void{
-        $this->todos->addTodo($_POST['title'],$_POST['due'],$_POST['status']);
+    public function save(): void
+    {
+        $this->todos->addTodo($_POST['title'], $_POST['due'], $_POST['status']);
 
         header('Location: /todos');
     }
 
-    public function delete(): void{
+    public function delete(): void
+    {
 
 
         $this->todos->delete($_POST['id']);
@@ -38,7 +44,8 @@ class TodoController{
         header('Location: /todos');
     }
 
-    public function update(): void{
+    public function update(): void
+    {
 
 
         $this->todos->updateTodo($_POST['id'], $_POST['status']);
@@ -46,16 +53,19 @@ class TodoController{
         header('Location: /todos');
     }
 
-    public function index(): void{
+    public function index(): void
+    {
 
 
         $todos = $this->todos->getAll()->getTodos();
-
-        require_once 'app/Views/main.template.php';
+        TwigRenderer::render('main.view.twig', ['todos' => $todos, 'username' => $_SESSION['username']]);
 
     }
 
-    public function create(): void{
-        require_once 'app/Views/create.template.php';
+    public function create(): void
+    {
+
+        TwigRenderer::render('create.view.twig', ['username' => $_SESSION['username']]);
+
     }
 }

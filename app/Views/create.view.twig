@@ -1,14 +1,11 @@
-<?php
-    require_once 'partials/header.php';
-
-?>
+{% include "header.twig" %}
 
 
 <body>
 
-    <div class="container addTaskContainer">
-        <div class="addTask">
-            <h1>Add new task</h1>
+<div class="container addTaskContainer">
+    <div class="addTask">
+        <h1>Add new task</h1>
         <form action="/add" method="post">
             <label>Title</label>
             <br>
@@ -21,8 +18,8 @@
             <input hidden type="text" name="status" value="created">
             <input class="submitButton" type="submit">
         </form>
-        </div>
     </div>
+</div>
 
 </body>
 

@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class User {
+class User
+{
 
 
     private int $id;
@@ -10,7 +11,7 @@ class User {
     private string $password;
     private string $access;
 
-    public function __construct( string $username, string $password, string $access, int $id = 0)
+    public function __construct(string $username, string $password, string $access, int $id = 0)
     {
         $this->id = $id;
         $this->username = $username;

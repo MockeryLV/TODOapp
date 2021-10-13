@@ -1,0 +1,23 @@
+<nav>
+    <div class="navblock">
+        <a href="/todos">ToDo</a>
+    </div>
+    {% if username %}
+    <div class="navblock logout">
+
+        <form action="/logout" method="get">
+            <input class="logoutButton" type="submit" value="logout">
+        </form>
+
+    </div>
+    {% else %}
+    <div class="navblock logout">
+
+        <form action="/register" method="get">
+            <input class="logoutButton" type="submit" value="register">
+        </form>
+
+    </div>
+    {% endif %}
+
+</nav>

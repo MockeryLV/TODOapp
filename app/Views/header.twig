@@ -1,6 +1,4 @@
-<?php
-echo $_SESSION['username'];
-?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +10,9 @@ echo $_SESSION['username'];
     <title>TODO List</title>
 </head>
 
-<?php
+<body>
 
-require_once 'navigation.php';
+<div>
+    {{ username }}</div>
 
+{% include "navigation.twig" %}

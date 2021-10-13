@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class Todo{
+class Todo
+{
 
     private $id;
 
