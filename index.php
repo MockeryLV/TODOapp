@@ -48,19 +48,28 @@ switch ($routeInfo[0]) {
         if($_SESSION){
             $controller = 'App\Controllers\\' . $controller;
             $controller = new $controller();
-            $controller->$method();
+            $response = $controller->$method();
+            if($response instanceof \App\Models\View){
+                \App\TwigRenderer::render($response->getPath(), $response->getVars());
+            }
             break;
 
         }
         if($method === 'login' || $method === 'verify' || $method === 'register' || $method === 'registrate'){
             $controller = 'App\Controllers\\' . $controller;
             $controller = new $controller();
-            $controller->$method();
+            $response = $controller->$method();
+            if($response instanceof \App\Models\View){
+                \App\TwigRenderer::render($response->getPath(), $response->getVars());
+            }
             break;
         }
         $controller = 'App\Controllers\\' . 'UsersController';
         $controller = new $controller();
-        $controller->login();
+        $response = $controller->login();
+        if($response instanceof \App\Models\View){
+            \App\TwigRenderer::render($response->getPath(), $response->getVars());
+        }
         break;
 
 }

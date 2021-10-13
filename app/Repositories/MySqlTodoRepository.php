@@ -11,8 +11,10 @@ class MySqlTodoRepository
 
     private PDO $pdo;
 
-    public function __construct(PDO $pdo)
+    public function __construct()
     {
+        require_once 'config.php';
+        $pdo = new PDO($dsn, $user, $password);
         $this->pdo = $pdo;
     }
 

@@ -3,6 +3,7 @@
 
 namespace App\Controllers;
 
+use App\Models\View;
 use App\Repositories\MySqlTodoRepository;
 use App\TwigRenderer;
 use PDO;
@@ -15,17 +16,7 @@ class TodoController
 
     public function __construct()
     {
-
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $dbname = 'todo';
-
-        $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
-
-        $pdo = new PDO($dsn, $user, $password);
-
-        $this->todos = new MySqlTodoRepository($pdo);
+        $this->todos = new MySqlTodoRepository();
     }
 
     public function save(): void
@@ -53,19 +44,17 @@ class TodoController
         header('Location: /todos');
     }
 
-    public function index(): void
+    public function index(): View
     {
 
-
         $todos = $this->todos->getAll()->getTodos();
-        TwigRenderer::render('main.view.twig', ['todos' => $todos, 'username' => $_SESSION['username']]);
+        return new View('main.view.twig', ['todos' => $todos, 'username' => $_SESSION['username']]);
 
     }
 
-    public function create(): void
+    public function create(): View
     {
-
-        TwigRenderer::render('create.view.twig', ['username' => $_SESSION['username']]);
+        return new View('create.view.twig', ['username' => $_SESSION['username']]);
 
     }
 }
