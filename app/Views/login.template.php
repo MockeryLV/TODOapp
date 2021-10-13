@@ -8,7 +8,7 @@ require_once 'partials/header.php';
 
 <div class="container">
     <div class="login">
-        <form action="/checkout" method="post">
+        <form action="/verify" method="post">
             <label>Username</label>
             <input name='username' type="text" placeholder="username...">
             <label>Password</label>

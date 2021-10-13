@@ -10,7 +10,6 @@ class SessionSetter{
     }
 
     public static function SetUser(User $user): void{
-        session_start();
         $_SESSION['id'] = $user->getId();
         $_SESSION['username'] = $user->getUsername();
         $_SESSION['password'] = $user->getPassword();

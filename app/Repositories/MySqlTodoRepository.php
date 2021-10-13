@@ -16,7 +16,6 @@ class MySqlTodoRepository{
     }
 
     public function getAll(): TodoCollection{
-        session_start();
         $todos = [];
         $sql = 'SELECT * FROM todos WHERE user_id=?';
         $stmt = $this->pdo->prepare($sql);
@@ -32,7 +31,6 @@ class MySqlTodoRepository{
     }
 
     public function addTodo(string $title, string $due, string $status): void{
-        session_start();
         $sql = 'INSERT INTO todos(title, due, status, user_id) VALUES (:title, :due, :status, :user_id)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['title' => $title, 'due' => $due, 'status' => $status, 'user_id' => $_SESSION['id']]);
