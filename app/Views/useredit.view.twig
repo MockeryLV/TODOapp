@@ -1,0 +1,14 @@
+{% include "partials/header.twig" %}
+
+
+<div class="container">
+    <div class="registration">
+        <form action="/settings" method="post">
+            <label for="username">Enter username!</label>
+            <input id='username 'name='username' type="text" placeholder="Username..." value="{{ user.getUsername() }}">
+            <label for="pwd">Enter password!</label>
+            <input id='pwd' type="password" name='password' placeholder="Pwd...">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</div>

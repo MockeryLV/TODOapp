@@ -56,5 +56,18 @@ class UsersController
         header('Location: /login');
     }
 
+    public function showEdit(): View
+    {
+        $user = $this->users->searchById($_SESSION['id']);
+        return new View('useredit.view.twig', ['username' => $_SESSION['username'], 'user' => $user]);
+    }
+
+    public function edit(){
+
+        $this->users->updateUser($_SESSION['id'], $_POST['username'], $_POST['password']);
+        $_SESSION['username'] = $_POST['username'];
+        header('Location: /todos');
+    }
+
 
 }

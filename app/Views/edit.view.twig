@@ -1,0 +1,28 @@
+{% include "partials/header.twig" %}
+
+
+<body>
+
+<div class="container addTaskContainer">
+    <div class="addTask">
+        <h1>Edit Task</h1>
+        <form action="/edit" method="post">
+            <label>Title</label>
+            <br>
+            <input type="text" name="title" value="{{ todo.getTitle() }}">
+            <br>
+
+            <label>Due</label>
+            <br>
+            <input type="datetime-local" name="due" value="{{ todo.getDue() }}">
+            <br>
+            <input hidden name="id" value="{{ todo.getId() }}">
+            <input hidden type="text" name="status" value="created">
+            <input class="submitButton" type="submit">
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -7,6 +7,12 @@
     {% for todo in todos %}
     <div class="box">
         {{ todo.getTitle() }}
+        <div>
+        <form action="/edit" method="get">
+            <input hidden name="id" value="{{ todo.getId() }}">
+            <input class="submitButton"type="submit" value="edit">
+        </form>
+        </div>
         <br>
         {{ todo.getDue() }}
         <br>

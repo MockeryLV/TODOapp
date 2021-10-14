@@ -62,4 +62,22 @@ class MySqlTodoRepository
         $stmt->execute(['id' => $id]);
     }
 
+
+    public function getById(int $id): Todo{
+        $sql = 'SELECT * FROM todos WHERE id=?';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        $todo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return new Todo($todo['id'], $todo['title'], $todo['due'], $todo['status'], $todo['user_id']);
+    }
+
+    public function editTodo(int $id, string $title, string $due, string $status){
+        $sql = "UPDATE todos SET status = :status, title = :title, due = :due WHERE id = :id";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id, 'status' => $status, 'title' => $title, 'due' => $due]);
+    }
+
 }

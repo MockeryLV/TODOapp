@@ -20,6 +20,11 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/logout', 'UsersController@logout');
     $r->addRoute('GET', '/register', 'UsersController@register');
     $r->addRoute('POST', '/registrate', 'UsersController@registrate');
+    $r->addRoute('GET', '/edit', 'TodoController@showEdit');
+    $r->addRoute('POST', '/edit', 'TodoController@edit');
+    $r->addRoute('GET', '/settings', 'UsersController@showEdit');
+    $r->addRoute('POST', '/settings', 'UsersController@edit');
+
 });
 
 // Fetch method and URI from somewhere

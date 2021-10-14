@@ -57,4 +57,17 @@ class TodoController
         return new View('create.view.twig', ['username' => $_SESSION['username']]);
 
     }
+
+    public function showEdit(): View{
+
+        $todo = $this->todos->getById($_GET['id']);
+        return new View('edit.view.twig', ['username' => $_SESSION['username'], 'todo' => $todo]);
+
+    }
+
+    public function edit(){
+        $this->todos->editTodo($_POST['id'], $_POST['title'], $_POST['due'], $_POST['status']);
+        header('Location: /todos');
+
+    }
 }

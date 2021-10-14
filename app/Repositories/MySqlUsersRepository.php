@@ -54,4 +54,20 @@ class MySqlUsersRepository
         }
     }
 
+    public function updateUser(int $id, string $username, string $password)
+    {
+        $sql = 'UPDATE users SET username = :username, password = :password WHERE id=:id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['username' => $username, 'id' => $id, 'password' => password_hash($password, PASSWORD_BCRYPT)]);
+    }
+
+    public function searchById(int $id): User{
+        $sql = 'SELECT * FROM users WHERE id=:id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        $user = new User($data['username'], $data['password'], $data['access'], $data['id']);
+        return $user;
+    }
+
 }
